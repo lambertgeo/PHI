@@ -1,0 +1,50 @@
+>>> model.save('vgg_16_3.h5')
+>>> 
+>>> #5.35. Smoothing our plots
+... 
+>>> def smooth_curve(points, factor=0.8):
+...   smoothed_points = []
+...   for point in points:
+...     if smoothed_points:
+...       previous = smoothed_points[-1]
+...       smoothed_points.append(previous * factor + point * (1 - factor))
+...     else:
+...       smoothed_points.append(point)
+...   return smoothed_points
+... 
+>>> plt.plot(epochs,
+...          smooth_curve(acc), 'bo', label='Smoothed training acc')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'epochs' is not defined
+>>> plt.plot(epochs,
+...          smooth_curve(val_acc), 'b', label='Smoothed validation acc')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'epochs' is not defined
+>>> plt.title('Training and validation accuracy')
+<matplotlib.text.Text object at 0x7f83c7c34190>
+>>> plt.legend()
+/usr/lib/python2.7/dist-packages/matplotlib/axes/_axes.py:545: UserWarning: No labelled objects found. Use label='...' kwarg on individual plots.
+  warnings.warn("No labelled objects found. "
+>>> 
+>>> plt.figure()
+<matplotlib.figure.Figure object at 0x7f83c405e090>
+>>> 
+>>> plt.plot(epochs,
+...          smooth_curve(loss), 'bo', label='Smoothed training loss')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'epochs' is not defined
+>>> plt.plot(epochs,
+...          smooth_curve(val_loss), 'b', label='Smoothed validation loss')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'epochs' is not defined
+>>> plt.title('Training and validation loss')
+<matplotlib.text.Text object at 0x7f83c4033690>
+>>> plt.legend()
+>>> 
+>>> plt.show()
+
+
